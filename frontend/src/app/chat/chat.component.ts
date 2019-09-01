@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import Chatkit from '@pusher/chatkit-client';
 import axios from 'axios';
+import { HttpClient } from '@angular/common/http';
+import { UserService } from '../shared/user.service';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-chat',
@@ -8,6 +11,8 @@ import axios from 'axios';
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent implements OnInit {
+  userDetails;
+
   userId = '';
   currentUser = <any>{};
   messages = [];
@@ -20,6 +25,27 @@ export class ChatComponent implements OnInit {
     isPrivate: false
   };
   joinableRooms = [];
+
+  readonly BaseURI = 'https://localhost:5001/api';
+
+  constructor(private http: HttpClient, service: UserService) { }
+
+  getUserProfile() {
+    return this.http.get(this.BaseURI + '/UserProfile');
+  }
+
+
+  getCurrentUser(){
+    this.getUserProfile().subscribe(
+      res => {
+        this.userDetails = res;
+        console.log(this.userDetails);
+      },
+      err => {
+        console.log(err);
+      }
+    )
+  }
 
   createRoom() {
     const { newRoom: { name, isPrivate }, currentUser } = this;
@@ -130,9 +156,9 @@ connectToRoom(id) {
           })
             .catch(error => console.error(error))
       }
-  constructor() { }
 
   ngOnInit() {
+    this.getCurrentUser();
   }
 
 }

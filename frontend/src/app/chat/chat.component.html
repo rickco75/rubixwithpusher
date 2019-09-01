@@ -19,9 +19,9 @@
 
   <main class="chat-window">
     <header class="chat-header">
-      <h4 *ngIf="!currentRoom.name; else roomName">Chat</h4>
+      <h4 *ngIf="!currentRoom.name; else roomName">Chat | System User: {{userDetails.userName}}</h4>
       <ng-template #roomName>
-        <h4>{{ currentRoom.name }}</h4>
+        <h4>{{ currentRoom.name }} ({{currentUser.id}})</h4>
       </ng-template>
       <span class="participants"></span>
     </header>
