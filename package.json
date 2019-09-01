@@ -1,0 +1,27 @@
+{
+  "name": "rubixwithpusher",
+  "version": "1.0.0",
+  "description": "Rubix added pusher chatroom",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rickco75/rubixwithpusher.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rickco75/rubixwithpusher/issues"
+  },
+  "homepage": "https://github.com/rickco75/rubixwithpusher#readme",
+  "dependencies": {
+    "@pusher/chatkit-server": "^2.1.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1"
+  }
+}

@@ -1,0 +1,21 @@
+<div class="wrapper col-md-10">
+  <div class="wrapped-div">
+    <div class="tab-header">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a routerLink="/user/login" class="nav-link">Sign In</a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="/user/registration" class="nav-link active">Sign Up</a>
+            </li>
+        </ul>      
+      <!-- <h2 routerLink='/user/login' routerLinkActive='active'>Sign In</h2>
+      <h2 routerLink='/user/registration' routerLinkActive='active'>Sign Up</h2> -->
+    </div>
+    <div class="row">
+      <div class="col-md-10 offset-md-1">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

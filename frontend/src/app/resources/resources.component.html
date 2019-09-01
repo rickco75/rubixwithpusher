@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col-lg-12">
+    <h1 class="text-danger ">Resource Center</h1>  
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="deck">
+      <!-- <label class="font-weight-bold" style="text-align:left">Resource URL</label> -->
+      <input style="width: 34%;" [(ngModel)]="newResource.name" required placeholder="URL" />
+      <br>
+      <!-- <label class="font-weight-bold" style="text-align:left">Description</label>       -->
+      <textarea [(ngModel)]="newResource.description" cols="50" rows="6" placeholder="Resource Description"></textarea>
+      <br>
+      <button class="btn-success" (click)="addResource()">Add Resource</button>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <table class="table-striped">
+        <tr style="border-bottom:1px solid black">
+          <th>Resource Id</th>
+          <th>URL</th>
+          <th>Description</th>
+          <th>User Id</th>
+          <th>Action</th>
+        </tr>
+        <tr *ngFor="let resource of resources">
+          <td>{{resource.id}}</td>
+          <td><a target="_blank" href="{{resource.name}}">{{resource.name}}</a></td>
+          <td>{{resource.description}}</td>
+          <td>{{resource.userid}}</td>
+          <td style="text-align:center"><button class="btn-warning" (click)="deleteResource(resource.id)">x</button></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<!-- <h1> Test </h1>
+<button type="button" (click)="this.getApi()">Click Me!</button>
+<ul *ngFor="let data of apiData">
+  <li>{{data}} </li>
+</ul> -->
