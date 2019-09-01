@@ -11,7 +11,8 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent implements OnInit {
-  userDetails;
+  userDetails = {};
+  
 
   userId = '';
   currentUser = <any>{};
@@ -31,7 +32,7 @@ export class ChatComponent implements OnInit {
   constructor(private http: HttpClient, service: UserService) { }
 
   getUserProfile() {
-    return this.http.get(this.BaseURI + '/UserProfile');
+    return  this.http.get(this.BaseURI + '/UserProfile');
   }
 
 
@@ -39,6 +40,7 @@ export class ChatComponent implements OnInit {
     this.getUserProfile().subscribe(
       res => {
         this.userDetails = res;
+        console.log('Current User:');
         console.log(this.userDetails);
       },
       err => {
@@ -159,6 +161,7 @@ connectToRoom(id) {
 
   ngOnInit() {
     this.getCurrentUser();
+    
   }
 
 }

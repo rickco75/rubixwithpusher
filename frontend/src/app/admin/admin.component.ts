@@ -15,7 +15,7 @@ export class AdminComponent implements OnInit {
 
   readonly BaseURI = 'https://localhost:5001/api';
 
-  userDetails;
+  userDetails = {};
 
   users: Users[] = [];
 
